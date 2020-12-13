@@ -9,6 +9,7 @@ import Rating from '../components/Rating';
 import { prices, ratings } from '../utils';
 
 export default function SearchScreen(props) {
+  
   const {
     name = 'all',
     category = 'all',
@@ -18,15 +19,13 @@ export default function SearchScreen(props) {
     order = 'newest',
   } = useParams();
   const dispatch = useDispatch();
-  const productList = useSelector((state) => state.productList);
-  const { loading, error, products } = productList;
-
-  const productCategoryList = useSelector((state) => state.productCategoryList);
+  const { loading, error, products } = useSelector((state) => state.productList);
   const {
     loading: loadingCategories,
     error: errorCategories,
     categories,
-  } = productCategoryList;
+  } = useSelector((state) => state.productCategoryList);
+
   useEffect(() => {
     dispatch(
       listProducts({
@@ -74,9 +73,10 @@ export default function SearchScreen(props) {
           </select>
         </div>
       </div>
+
       <div className="row top">
         <div className="col-1">
-          <h3>Department</h3>
+          <h3>Category</h3>
           <div>
             {loadingCategories ? (
               <LoadingBox></LoadingBox>

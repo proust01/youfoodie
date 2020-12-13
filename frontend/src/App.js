@@ -70,7 +70,7 @@ function App() {
               <i className="fa fa-bars hamburger"></i>
             </button>
             <Link className="brand" to="/">
-              YourFoods
+              YouFoods
             </Link>
           </div>
 
@@ -278,8 +278,8 @@ function App() {
 
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
-        <footer className="row center">
-          <h3>Uber Eats</h3>
+        <footer className="row space">
+          <h3>YourFoods</h3>
           <h3>All right reserved</h3>
           </footer>
       </div>

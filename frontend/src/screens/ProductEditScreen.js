@@ -16,17 +16,15 @@ export default function ProductEditScreen(props) {
   const [brand, setBrand] = useState('');
   const [description, setDescription] = useState('');
 
-  const productDetails = useSelector((state) => state.productDetails);
-  const { loading, error, product } = productDetails;
-
-  const productUpdate = useSelector((state) => state.productUpdate);
+  const { loading, error, product } = useSelector((state) => state.productDetails);
   const {
     loading: loadingUpdate,
     error: errorUpdate,
     success: successUpdate,
-  } = productUpdate;
+  } = useSelector((state) => state.productUpdate);
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     if (successUpdate) {
       props.history.push('/productlist');
@@ -44,6 +42,7 @@ export default function ProductEditScreen(props) {
       setDescription(product.description);
     }
   }, [product, dispatch, productId, successUpdate, props.history]);
+
   const submitHandler = (e) => {
     e.preventDefault();
     // TODO: dispatch update product
@@ -53,7 +52,7 @@ export default function ProductEditScreen(props) {
         name,
         price,
         image,
-        category,
+        category: category.toLowerCase(),
         brand,
         countInStock,
         description,

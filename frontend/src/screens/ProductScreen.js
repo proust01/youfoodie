@@ -73,7 +73,7 @@ export default function ProductScreen(props) {
                     <h1 className="menu-name">{product.name}</h1>
                   </li>
                   <li>
-                    <p>{product.description}</p>
+                    <p className="product-description">{product.description}</p>
                   </li>
                   <li>
                     <Rating
@@ -83,7 +83,7 @@ export default function ProductScreen(props) {
                   </li>
                 </ul>
 
-                <div className="radiobox">
+                {/* <div className="radiobox">
                   <h1 className="h1 radio">Choice of Style</h1>
                   
                   <div>
@@ -173,7 +173,7 @@ export default function ProductScreen(props) {
                     ></input>
                     <label htmlFor="paypal">Boneless</label>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               <Reviews productId={productId} />

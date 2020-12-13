@@ -27,6 +27,7 @@ productRouter.get(
     const categoryFilter = category ? { category } : {};
     const priceFilter = min && max ? { price: { $gte: min, $lte: max } } : {};
     const ratingFilter = rating ? { rating: { $gte: rating } } : {};
+
     const sortOrder =
       order === 'lowest'
         ? { price: 1 }
@@ -52,6 +53,7 @@ productRouter.get(
 productRouter.get(
   '/categories',
   expressAsyncHandler(async (req, res) => {
+    // distinct option : only show unique value in collection
     const categories = await Product.find().distinct('category');
     res.send(categories);
   })

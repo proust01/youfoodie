@@ -16,6 +16,9 @@ body {
 .icons {
   width: 6rem;
 }
+.product-description {
+  font-size: 3rem;
+}
 .row p {
   font-size: 1.2rem;
   font-weight: bold;
@@ -54,6 +57,7 @@ h1 {
 h1.menu-name {
   font-size: 4rem;
 }
+
 h2 {
   font-size: 1.6rem;
   padding: 1rem 0;
@@ -134,11 +138,34 @@ a.brand {
   font-size: 1.4rem;
   margin-left: 0.2rem;
 }
+/* container row column */
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
 .row {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+}
+.row-menus {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+.row.category-menu {
+  width: 85vw;
+  margin: 3rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.category-name {
+  margin-top: 4rem;
+  font-size: 2rem;
 }
 .row.icons {
   display: flex;
@@ -154,9 +181,17 @@ a.brand {
   align-items: center;
 }
 .row.center {
+  margin-top: 2rem;
   justify-content: center;
 }
+.row.space {
+  justify-content: space-between;
+}
 .row.top {
+  align-items: flex-start;
+}
+.row.top.center {
+  justify-content: center;
   align-items: flex-start;
 }
 .row.top.order {
@@ -170,18 +205,22 @@ a.brand {
 .row.column {
   flex-direction: column;
 }
+.row-column {
+  justify-content: flex-start;
+}
+.row-category {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 5rem;
+  border-bottom: 1px solid #e2e2e2;
+}
 .row.button {
   justify-content: space-between;
   margin-top: 5vh;
 }
-.row.category {
-  width: 90%;
-  height: 10vh;
-  border-bottom: 1px solid #e2e2e2;
-}
-.row.category.space {
-  justify-content: space-evenly;
-}
+
 .row.start {
   justify-content: flex-start;
 }
@@ -200,6 +239,10 @@ a.brand {
 .col {
   flex-direction: column;
   margin: 2rem 0.5rem;
+}
+.col-category {
+  flex: 0.1 1 1rem;
+  color: #747d7c;
 }
 .col-1 {
   flex: 1 1 25rem;
