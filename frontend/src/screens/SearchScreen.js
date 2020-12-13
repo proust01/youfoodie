@@ -18,6 +18,7 @@ export default function SearchScreen(props) {
     rating = 0,
     order = 'newest',
   } = useParams();
+
   const dispatch = useDispatch();
   const { loading, error, products } = useSelector((state) => state.productList);
   const {
@@ -50,7 +51,7 @@ export default function SearchScreen(props) {
   };
   return (
     <div>
-      <div className="row">
+      <div className="row-search">
         {loading ? (
           <LoadingBox></LoadingBox>
         ) : error ? (
@@ -75,7 +76,7 @@ export default function SearchScreen(props) {
       </div>
 
       <div className="row top">
-        <div className="col-1">
+        <div className="col-1-search">
           <h3>Category</h3>
           <div>
             {loadingCategories ? (

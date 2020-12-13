@@ -10,6 +10,7 @@ import { listSellers, listTopSellers } from "../actions/userActions";
 import { Link } from "react-router-dom";
 import Rating from "./../components/Rating";
 import CategoryIcons from "../components/CategoryIcons";
+import SearchScreen from "./SearchScreen";
 
 export default function HomeScreen() {
   const dispatch = useDispatch();
@@ -26,6 +27,8 @@ export default function HomeScreen() {
     error: errorSellers,
     users: sellers,
   } = useSelector((state) => state.userSellersList);
+
+  const featuredProducts = products?.slice(0,4);
 
   useEffect(() => {
     dispatch(listProducts({}));
@@ -72,7 +75,7 @@ export default function HomeScreen() {
 
       <CategoryIcons />
 
-      <h2>Recommended Restaurat</h2>
+      <h2 className="home-category">Recommended Restaurat</h2>
       {loadingSellers ? (
         <LoadingBox></LoadingBox>
       ) : errorSellers ? (
@@ -115,7 +118,7 @@ export default function HomeScreen() {
         </>
       )}
 
-      <h2>Featured Products</h2>
+      <h2 className="home-category">Featured Products</h2>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
@@ -124,12 +127,15 @@ export default function HomeScreen() {
         <>
           {products.length === 0 && <MessageBox>No Product Found</MessageBox>}
           <div className="row center">
-            {products.map((product) => (
+            {featuredProducts.map((product) => (
               <Product key={product._id} product={product}></Product>
             ))}
           </div>
         </>
       )}
+
+      <h2 className="home-category">Find your food</h2>
+      <SearchScreen/>
     </div>
   );
 }

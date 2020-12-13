@@ -96,9 +96,9 @@ export default function SellerScreen(props) {
               )}
 
               {uniqCategories.map((c) => (
-                <button onclick={document.getElementById(`${c}`)?.scrollIntoView()} className="col-category">
-                  <h3 >{c.toUpperCase()}</h3>
-                </button>
+                // <button onclick={document.getElementById(`${c}`)?.scrollIntoView()} className="col-category">
+                // </button>
+                  <h3 className="col-category">{c.toUpperCase()}</h3>
               ))}
             </>
           )}

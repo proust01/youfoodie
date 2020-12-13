@@ -278,8 +278,8 @@ function App() {
 
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
-        <footer className="row space">
-          <h3>YourFoods</h3>
+        <footer className="row-footer">
+          <h3>YouFoods</h3>
           <h3>All right reserved</h3>
           </footer>
       </div>
