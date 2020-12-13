@@ -6,7 +6,7 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Product from '../components/Product';
 import Rating from '../components/Rating';
-import { Carousel } from 'react-responsive-carousel';
+
 
 export default function SellerScreen(props) {
 

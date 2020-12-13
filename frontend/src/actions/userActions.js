@@ -56,7 +56,7 @@ export const signin = (email, password) => async (dispatch) => {
   try {
     const { data } = await Axios.post('/api/users/signin', { email, password });
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
-    // localStorage.setItem('userInfo', JSON.stringify(data));
+    localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: USER_SIGNIN_FAIL,
@@ -82,7 +82,7 @@ export const detailsUser = (userId) => async (dispatch, getState) => {
   } = getState();
   try {
     const { data } = await Axios.get(`/api/users/${userId}`, {
-      headers: { Authorization: `Bearer ${userInfo.token}` },
+      // headers: { Authorization: `Bearer ${userInfo.token}?` },
     });
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data });
   } catch (error) {

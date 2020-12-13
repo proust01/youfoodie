@@ -27,8 +27,8 @@ export default function CartScreen(props) {
     props.history.push('/signin?redirect=shipping');
   };
   return (
-    <div className="row top">
-      <div className="col-2">
+    <div className="row top cart">
+      <div className="col-2 cart">
         <h1>Shopping Cart</h1>
         {error && <MessageBox variant="danger">{error}</MessageBox>}
         {cartItems.length === 0 ? (
@@ -84,6 +84,11 @@ export default function CartScreen(props) {
       <div className="col-1">
         <div className="card card-body">
           <ul>
+            <li>
+              <h2>
+                From :
+              </h2>
+            </li>
             <li>
               <h2>
                 Subtotal ({cartItems.reduce((a, c) => a + c.qty, 0)} items) : $

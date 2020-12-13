@@ -28,21 +28,16 @@ import { listProductCategories } from './actions/productActions';
 import LoadingBox from './components/LoadingBox';
 import MessageBox from './components/MessageBox';
 import MapScreen from './screens/MapScreen';
+import { listOrders } from './actions/orderActions';
 
 
 function App() {
-  const cart = useSelector((state) => state.cart);
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
   const [navRightIsOpen, setNavRightIsOpen] = useState(false);
-  const { cartItems } = cart;
-  const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
-  const dispatch = useDispatch();
 
-  const signoutHandler = () => {
-    dispatch(signout());
-  };
-
+  const { cartItems } = useSelector((state) => state.cart);
+  const { userInfo } = useSelector((state) => state.userSignin);
+  const { loading, error, orders } = useSelector((state) => state.orderList);
   const productCategoryList = useSelector((state) => state.productCategoryList);
   const {
     loading: loadingCategories,
@@ -50,8 +45,15 @@ function App() {
     categories,
   } = productCategoryList;
 
+  const dispatch = useDispatch();
+
+  const signoutHandler = () => {
+    dispatch(signout());
+  };
+
   useEffect(() => {
     dispatch(listProductCategories());
+    dispatch(listOrders({ seller : userInfo?._id }));
   }, [dispatch]);
 
   return (
@@ -115,7 +117,12 @@ function App() {
             {userInfo && userInfo.isSeller && (
               <div className="dropdown seller">
                 <Link to="#admin">
-                  Seller <i className="fa fa-caret-down"></i>
+                  Seller
+                  {/* {typeof(orders.length) === Number && (
+                  <span className="badge">{orders.length}</span>
+                  )}  */}
+                  {console.log(orders)}
+                  <i className="fa fa-caret-down"></i>
                 </Link>
                 <ul className="dropdown-content">
                   <li>
