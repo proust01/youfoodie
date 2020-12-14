@@ -75,7 +75,7 @@ export default function HomeScreen() {
 
       <CategoryIcons />
 
-      <h2 className="home-category">Recommended Restaurat</h2>
+      <h2 className="home-category">Recommended Restaurants</h2>
       {loadingSellers ? (
         <LoadingBox></LoadingBox>
       ) : errorSellers ? (
