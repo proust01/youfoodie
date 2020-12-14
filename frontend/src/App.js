@@ -70,7 +70,7 @@ function App() {
               <i className="fa fa-bars hamburger"></i>
             </button>
             <Link className="brand" to="/">
-              YouFoods
+              YouFoodie
             </Link>
           </div>
 
