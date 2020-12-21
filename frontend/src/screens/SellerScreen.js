@@ -74,13 +74,13 @@ export default function SellerScreen(props) {
         </div>
       )}
 
-      <div className="row column">
+      {/* <div className="row column">
         <div className="row button">
           <button className="primary order">Booking</button>
           <button className="primary order">Pick Up</button>
           <button className="primary order">Delivery</button>
         </div>
-      </div>
+      </div> */}
 
       <div className="container">
 
