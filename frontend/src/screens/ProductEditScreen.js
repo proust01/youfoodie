@@ -6,7 +6,7 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { PRODUCT_UPDATE_RESET } from '../constants/productConstants';
 
-export default function ProductEditScreen(props) {
+export default function ProductEditScreen (props) {
   const productId = props.match.params.id;
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
@@ -16,6 +16,7 @@ export default function ProductEditScreen(props) {
   const [brand, setBrand] = useState('');
   const [description, setDescription] = useState('');
 
+  // useSelector = useContext : bring state from store!!! (Context API)
   const { loading, error, product } = useSelector((state) => state.productDetails);
   const {
     loading: loadingUpdate,
@@ -48,6 +49,8 @@ export default function ProductEditScreen(props) {
     // TODO: dispatch update product
     dispatch(
       updateProduct({
+
+        // by doing this, it doesn't create mongo new ID, it saves as productId
         _id: productId,
         name,
         price,

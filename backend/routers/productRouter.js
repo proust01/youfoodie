@@ -46,6 +46,7 @@ productRouter.get(
     })
       .populate('seller', 'seller.name seller.logo')
       .sort(sortOrder);
+      
     res.send(products);
   })
 );

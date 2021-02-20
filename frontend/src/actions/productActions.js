@@ -73,10 +73,12 @@ export const detailsProduct = (productId) => async (dispatch) => {
   }
 };
 export const createProduct = () => async (dispatch, getState) => {
+
   dispatch({ type: PRODUCT_CREATE_REQUEST });
-  const {
-    userSignin: { userInfo },
-  } = getState();
+
+  // Get state from store.js
+  const { userSignin: { userInfo } } = getState();
+  
   try {
     const { data } = await Axios.post(
       '/api/products',

@@ -1,5 +1,6 @@
 import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
+
 import { cartReducer } from './reducers/cartReducers';
 import {
   orderCreateReducer,
@@ -76,6 +77,7 @@ const reducer = combineReducers({
   userAddressMap: userAddressMapReducer,
 });
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const store = createStore(
   reducer,
   initialState,
